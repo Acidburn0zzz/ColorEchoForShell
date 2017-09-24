@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+dir="$(cd "$(dirname "$0")" && pwd)"
+script="${dir}/../dist/ColorEcho.bash"
+. "${script}"
+
+for x in $(awk '/^function +echo/ {print $2}' "${script}")
+do
+    $x "$x"
+done
