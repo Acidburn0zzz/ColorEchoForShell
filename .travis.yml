@@ -51,7 +51,7 @@ matrix:
   - os: osx
     env:
       - task=test-dist-bash-brew-install
-      - PATH="/usr/local/bin/:$PATH"
+      - PATH="/usr/local/bin/:$(echo $PATH | sed 's/::/:/')"
     before_script:
       - brew install bash
       - type bash && bash --version
